@@ -2,16 +2,15 @@ using System.Collections;
 using UnityEngine;
 public class Medikit : MonoBehaviour, IInteractiveObject
 {
+    private Life life;
+    public int restoreLife;
     public void InteractAction()
     {
         if (life != null)
         {
             life.RestoreLife(restoreLife);
         }
-        throw new System.NotImplementedException();
     }
-    private Life life;
-    public int restoreLife;
     private void Start()
     {
         StartCoroutine(FindLife());
@@ -27,16 +26,6 @@ public class Medikit : MonoBehaviour, IInteractiveObject
     private IEnumerator FindLife()
     {
         yield return new WaitForEndOfFrame();
-        life = GameManager.instance.player._life;
-
-        if (life == null)
-        {
-            print("Life no asignado correctamente en Trap.");
-        }
-        else
-        {
-            print("Life SI asignado correctamente en Trap.");
-        }
-
+        life = GameManager.instance.player.GetLife;
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _initSpeed;
@@ -10,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Controller _controller;
     [SerializeField] private Movement _movement;
     [SerializeField] private RaycastPj _rbPj;
-    [SerializeField] public Life _life;
+    [SerializeField] private Life _life;
     [SerializeField] private Transform _groundChecker;
     public LayerMask layerMaskGround;
     private void Awake()
@@ -44,30 +43,24 @@ public class Player : MonoBehaviour
     private IEnumerator ChangeSpeed(float buff, float notBuff, float time)
     {
         _movement.GetAndSetSpeed = buff;
-        Debug.Log(buff);
         yield return new WaitForSeconds(time);
         _movement.GetAndSetSpeed = notBuff;
-        Debug.Log(notBuff);
     }
     private IEnumerator ChangeMass(float buff, float notBuff, int time)
     {
         _movement.GetAndSetMass = buff;
-        Debug.Log(buff);
         yield return new WaitForSeconds(time);
         _movement.GetAndSetMass = notBuff;
-        Debug.Log(notBuff);
     }
     private IEnumerator ChangeJump(float buff, float notBuff, float time)
     {
         _movement.GetAndSetJump = buff;
-        Debug.Log(buff);
         yield return new WaitForSeconds(time);
         _movement.GetAndSetJump = notBuff;
-        Debug.Log(notBuff);
     }
     private void StartSpeedBuff(float buff,float notBuff,float time)
     {
-        StartCoroutine(ChangeSpeed(buff, notBuff, time));
+        StartCoroutine(ChangeSpeed(buff, notBuff,time));
     }
     private void StartMassBuff(float buff,float notBuff,int time)
     {
@@ -82,10 +75,12 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(_groundChecker.position, 0.5f);
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         _movement = null;
         _controller = null;
         _life = null;
+        _rbPj = null;
     }
+    public Life GetLife { get => _life; }
 }
