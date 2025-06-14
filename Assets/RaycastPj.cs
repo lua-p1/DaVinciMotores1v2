@@ -1,23 +1,22 @@
 using UnityEngine;
-public class RaycastPj : MonoBehaviour
+public class RaycastPj
 {
-    private float distance_ray;
-    Ray ray;
+    private float _distanceRay;
     Transform _transform;
     public RaycastPj(Transform transform, float distance)
     {
         _transform = transform;
-        distance_ray = distance;
+        _distanceRay = distance;
     }
     public void Interact()
     {
-        ray = new Ray(_transform.position, _transform.forward);
+        Ray ray = new Ray(_transform.position, _transform.forward);
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * distance_ray, Color.red);
-        if (Physics.Raycast(ray.origin, ray.direction, out hit, distance_ray))
+        Debug.DrawRay(ray.origin, ray.direction * _distanceRay, Color.red);
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, _distanceRay))
         {
             Debug.Log(hit.transform.gameObject.name);
-            if (hit.transform.gameObject.TryGetComponent<InteractiveObj>(out var InteractuableObject))
+            if (hit.transform.gameObject.TryGetComponent<IInteractiveObject>(out var InteractuableObject))
             {
                 InteractuableObject.InteractAction();
             }

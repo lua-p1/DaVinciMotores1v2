@@ -1,4 +1,4 @@
-public interface InteractiveObj
+public interface IInteractiveObject
 {
     public abstract void InteractAction();
 }
