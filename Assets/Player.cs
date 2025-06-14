@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Controller _controller;
     [SerializeField] private Movement _movement;
     [SerializeField] private RaycastPj _rbPj;
-    [SerializeField] private Life _life;
+    [SerializeField] public Life _life;
     [SerializeField] private Transform _groundChecker;
     public LayerMask layerMaskGround;
     private void Awake()
@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
         _initSpeed = 10f;
         _initLife = 100f;
         _initJumpForce = 5f;
-        _groundChecker = transform.GetChild(0);
     }
     private void OnEnable()
     {

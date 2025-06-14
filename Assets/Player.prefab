@@ -99,10 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initSpeed: 0
-  _initLife: 100
+  _initLife: 0
   _initJumpForce: 0
   _rb: {fileID: 0}
-  _rbPj: {fileID: 0}
   _groundChecker: {fileID: 8245507693013393840}
   layerMaskGround:
     serializedVersion: 2
