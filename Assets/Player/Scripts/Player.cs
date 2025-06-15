@@ -2,15 +2,15 @@ using System.Collections;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _initSpeed;
-    [SerializeField] private float _initLife;
-    [SerializeField] private float _initJumpForce;
-    [SerializeField] private Rigidbody _rb;
-    [SerializeField] private Controller _controller;
-    [SerializeField] private Movement _movement;
-    [SerializeField] private RaycastPj _rbPj;
-    [SerializeField] private Life _life;
-    [SerializeField] private Transform _groundChecker;
+    [SerializeField]private float _initSpeed;
+    [SerializeField]private float _initLife;
+    [SerializeField]private float _initJumpForce;
+    [SerializeField]private Rigidbody _rb;
+    [SerializeField]private Controller _controller;
+    [SerializeField]private Movement _movement;
+    [SerializeField]private RaycastPj _rayCastPj;
+    [SerializeField]private Life _life;
+    [SerializeField]private Transform _groundChecker;
     public LayerMask layerMaskGround;
     private void Awake()
     {
@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
     {
         _movement = new Movement(this.transform, _initSpeed, _rb, _initJumpForce);
         _life = new Life(this.gameObject, _initLife);
-        _rbPj = new RaycastPj(transform, 50f);
-        _controller = new Controller(_movement, this, _rbPj, _groundChecker, layerMaskGround);
+        _rayCastPj = new RaycastPj(transform, 50f);
+        _controller = new Controller(_movement, this, _rayCastPj, _groundChecker, layerMaskGround);
     }
     private void Start()
     {
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         _movement = null;
         _controller = null;
         _life = null;
-        _rbPj = null;
+        _rayCastPj = null;
     }
     public Life GetLife { get => _life; }
 }

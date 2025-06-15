@@ -5,19 +5,18 @@ public class Movement
     private Transform _transform;
     private Rigidbody _rb;
     private float _jumpForce;
-
-    public Movement(Transform transform, float speed, Rigidbody rb, float jumpForce)
+    public Movement(Transform _transform, float _speed, Rigidbody _rb, float _jumpForce)
     {
-        _transform = transform;
-        _speed = speed;
-        _rb = rb;
-        _jumpForce = jumpForce;
+        this._transform = _transform;
+        this._speed = _speed;
+        this._rb = _rb;
+        this._jumpForce = _jumpForce;
     }
     public void Move(Vector2 inputs)
     {
-        var dir = _transform.forward * inputs.y + _transform.right * inputs.x;
-        dir = dir.normalized;
-        var _movPosVector = _rb.position + dir * _speed * Time.fixedDeltaTime;
+        var _dir = _transform.forward * inputs.y + _transform.right * inputs.x;
+        _dir = _dir.normalized;
+        var _movPosVector = _rb.position + _dir * _speed * Time.fixedDeltaTime;
         _rb.MovePosition(_movPosVector);
     }
     public void Jump()

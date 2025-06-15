@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-public class PowerUps : MonoBehaviour
+public abstract class PowerUps : MonoBehaviour
 {
     protected Movement movement;
     protected float buff;
@@ -13,9 +13,11 @@ public class PowerUps : MonoBehaviour
     {
         if (movement != null)
         {
+            ActivateBuff();
         }
         if (GameManager.instance.player == null) { movement = null; }
     }
+    protected abstract void ActivateBuff();
     private IEnumerator FindMovement()
     {
         yield return new WaitForEndOfFrame();

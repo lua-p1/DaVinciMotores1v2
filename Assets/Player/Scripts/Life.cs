@@ -1,31 +1,31 @@
 using UnityEngine;
 public class Life
 {
-    private float _lifeclase;
+    private float _life;
     private GameObject _gameObject;
-    public Life(GameObject gameObject, float startingLife)
+    public Life(GameObject _gameObject, float _life)
     {
-        _gameObject = gameObject;
-        _lifeclase = startingLife;
+        this._gameObject = _gameObject;
+        this._life = _life;
     }
     private void CheckLife()
     {
-        if (_lifeclase <= 0)
+        if (_life <= 0)
         {
             GameObject.Destroy(_gameObject);
         }
     }
     public void TakeDamage(int damage)
     {
-        _lifeclase -= damage;
+        _life -= damage;
         CheckLife();
-        Debug.Log($"Vida actual: {_lifeclase}");
+        Debug.Log($"Vida actual: {_life}");
     }
     public void RestoreLife(int life)
     {
-        _lifeclase += life;
+        _life += life;
         CheckLife();
-        Debug.Log($"Vida actual: {_lifeclase}");
+        Debug.Log($"Vida actual: {_life}");
     }
-        public float LIFE { get => _lifeclase; }
+        public float GetLife { get => _life; }
 }
