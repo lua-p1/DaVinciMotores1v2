@@ -22,7 +22,7 @@ public class DelegatesManager : MonoBehaviour
     public void AddAction(KeysDelegatesEnum key, Delegate value)
     {
         if (_actions.ContainsKey(key)) return;
-        _actions.Add(key, value);
+        _actions.Add(key,value);
     }
     public void RemoveAction(KeysDelegatesEnum key)
     {

@@ -2,33 +2,22 @@ using System.Collections;
 using UnityEngine;
 public abstract class PowerUps : MonoBehaviour
 {
-    protected Movement movement;
+    protected Player playerRef;
     protected float buff;
     protected float notBuff;
     protected float buffTime;
     protected virtual void Start()
     {
-        StartCoroutine(FindMovement());
+        StartCoroutine(FindPlayer());
     }
     protected virtual void Update()
     {
-        if (movement != null)
-        {
-            ActivateBuff();
-        }
-        if (GameManager.instance.player == null) { movement = null; }
+        ActivateBuff();
     }
     protected abstract void ActivateBuff();
-    private IEnumerator FindMovement()
+    private IEnumerator FindPlayer()
     {
         yield return new WaitForEndOfFrame();
-        if (movement == null)
-        {
-            print("movement no asignado correctamente en Trap.");
-        }
-        else
-        {
-            print("movement SI asignado correctamente en Trap.");
-        }
+        playerRef = GameManager.instance.player;
     }
 }

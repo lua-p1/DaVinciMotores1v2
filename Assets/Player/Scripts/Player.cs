@@ -88,4 +88,7 @@ public class Player : MonoBehaviour
         DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerJump);
     }
     public Life GetLife { get => _life; }
+    public Movement GetMovement { get => _movement; }
+    public float GetInitJump { get => _initJumpForce; }
+    public float GetInitSpeed { get => _initSpeed; }
 }
