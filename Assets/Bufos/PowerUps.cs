@@ -5,6 +5,7 @@ public abstract class PowerUps : MonoBehaviour
     protected Movement movement;
     protected float buff;
     protected float notBuff;
+    protected float buffTime;
     protected virtual void Start()
     {
         StartCoroutine(FindMovement());

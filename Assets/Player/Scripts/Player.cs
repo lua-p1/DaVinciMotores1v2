@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public class Player : MonoBehaviour
@@ -25,12 +26,13 @@ public class Player : MonoBehaviour
         _life = new Life(this.gameObject, _initLife);
         _rayCastPj = new RaycastPj(transform, 50f);
         _controller = new Controller(_movement, this, _rayCastPj, _groundChecker, layerMaskGround);
+        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerSpeed, (Action<float, float, float>)StartSpeedBuff);
+        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerMass, (Action<float, float, float>)StartMassBuff);
+        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerJump, (Action<float, float, float>)StartJumpBuff);
     }
     private void Start()
     {
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
-        //DelegatesManager.instance.AddAction(KeysDelegatesEnum.PLAYERSPEED, (Action<float, float, float>)StartSpeedBuff);
-        //DelegatesManager.instance.AddAction(KeysDelegatesEnum.PLAYERMASS, (Action<float, float, int>)StartMassBuff);
     }
     private void Update()
     {
@@ -46,7 +48,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         _movement.GetAndSetSpeed = notBuff;
     }
-    private IEnumerator ChangeMass(float buff, float notBuff, int time)
+    private IEnumerator ChangeMass(float buff, float notBuff, float time)
     {
         _movement.GetAndSetMass = buff;
         yield return new WaitForSeconds(time);
@@ -62,7 +64,7 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(ChangeSpeed(buff, notBuff,time));
     }
-    private void StartMassBuff(float buff,float notBuff,int time)
+    private void StartMassBuff(float buff,float notBuff,float time)
     {
         StartCoroutine(ChangeMass(buff,notBuff,time));
     }
@@ -81,6 +83,9 @@ public class Player : MonoBehaviour
         _controller = null;
         _life = null;
         _rayCastPj = null;
+        DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerSpeed);
+        DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerMass);
+        DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerJump);
     }
     public Life GetLife { get => _life; }
 }
