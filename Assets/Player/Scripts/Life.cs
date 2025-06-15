@@ -2,17 +2,15 @@ using UnityEngine;
 public class Life
 {
     private float _life;
-    private GameObject _gameObject;
-    public Life(GameObject _gameObject, float _life)
+    public Life(float _life)
     {
-        this._gameObject = _gameObject;
         this._life = _life;
     }
     private void CheckLife()
     {
         if (_life <= 0)
         {
-            GameObject.Destroy(_gameObject);
+            DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerDeath);
         }
     }
     public void TakeDamage(int damage)

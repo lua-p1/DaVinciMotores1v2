@@ -20,19 +20,17 @@ public class Player : MonoBehaviour
         _initLife = 100f;
         _initJumpForce = 5f;
     }
-    private void OnEnable()
-    {
-        _movement = new Movement(this.transform, _initSpeed, _rb, _initJumpForce);
-        _life = new Life(this.gameObject, _initLife);
-        _rayCastPj = new RaycastPj(transform, 50f);
-        _controller = new Controller(_movement, this, _rayCastPj, _groundChecker, layerMaskGround);
-    }
     private void Start()
     {
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
+        _movement = new Movement(this.transform, _initSpeed, _rb, _initJumpForce);
+        _life = new Life(_initLife);
+        _rayCastPj = new RaycastPj(transform, 50f);
+        _controller = new Controller(_movement, this, _rayCastPj, _groundChecker, layerMaskGround);
         DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerSpeed, (Action<float, float, float>)StartSpeedBuff);
         DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerMass, (Action<float, float, float>)StartMassBuff);
         DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerJump, (Action<float, float, float>)StartJumpBuff);
+        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerDeath,(Action)PlayerDeath);
     }
     private void Update()
     {
@@ -42,6 +40,7 @@ public class Player : MonoBehaviour
     {
         _controller.OnFixedUpdate();
     }
+    #region//Buffos
     private IEnumerator ChangeSpeed(float buff, float notBuff, float time)
     {
         _movement.GetAndSetSpeed = buff;
@@ -72,12 +71,18 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(ChangeJump(buff,notBuff,time));
     }
+    #endregion
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(_groundChecker.position, 0.5f);
     }
-    private void OnDisable()
+    private void PlayerDeath()
+    {
+        Debug.Log("Me mori");
+        Destroy(gameObject);
+    }
+    private void OnDestroy()
     {
         _movement = null;
         _controller = null;
@@ -86,6 +91,7 @@ public class Player : MonoBehaviour
         DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerSpeed);
         DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerMass);
         DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerJump);
+        DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerDeath);
     }
     public Life GetLife { get => _life; }
     public Movement GetMovement { get => _movement; }

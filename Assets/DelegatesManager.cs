@@ -5,7 +5,8 @@ public enum KeysDelegatesEnum
 {
     PlayerSpeed,
     PlayerMass,
-    PlayerJump
+    PlayerJump,
+    PlayerDeath
 }
 public class DelegatesManager : MonoBehaviour
 {
