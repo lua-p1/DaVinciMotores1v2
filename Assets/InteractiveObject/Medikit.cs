@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 public class Medikit : MonoBehaviour, IInteractiveObject
 {
@@ -6,7 +5,7 @@ public class Medikit : MonoBehaviour, IInteractiveObject
     public int restoreLife;
     private void Start()
     {
-        StartCoroutine(FindLife());
+        _life = GameManager.instance.player.GetLife;
     }
     public void InteractAction()
     {
@@ -19,10 +18,9 @@ public class Medikit : MonoBehaviour, IInteractiveObject
         {
             InteractAction();
         }
-    }
-    private IEnumerator FindLife()
-    {
-        yield return new WaitForEndOfFrame();
-        _life = GameManager.instance.player.GetLife;
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            _life.TakeDamage(20);
+        }
     }
 }

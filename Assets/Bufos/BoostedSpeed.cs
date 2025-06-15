@@ -1,11 +1,11 @@
-using System.Collections;
 using UnityEngine;
 public class BoostedSpeed : PowerUps
 {
     protected override void Start()
     {
         base.Start();
-        StartCoroutine(FindInitSpeed());
+        notBuff = playerRef.GetInitSpeed;
+        buff = playerRef.GetInitSpeed * 5;
     }
     protected override void ActivateBuff()
     {
@@ -13,11 +13,5 @@ public class BoostedSpeed : PowerUps
         {
             DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerSpeed, buff, notBuff, buffTime);
         }
-    }
-    private IEnumerator FindInitSpeed()
-    {
-        yield return new WaitForEndOfFrame();
-        notBuff = playerRef.GetInitSpeed;
-        buff = playerRef.GetInitSpeed * 5;
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 public abstract class PowerUps : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public abstract class PowerUps : MonoBehaviour
     protected float buffTime;
     protected virtual void Start()
     {
-        StartCoroutine(FindPlayer());
+        playerRef = GameManager.instance.player;
         buffTime = 3f;
     }
     protected virtual void Update()
@@ -16,9 +15,4 @@ public abstract class PowerUps : MonoBehaviour
         ActivateBuff();
     }
     protected abstract void ActivateBuff();
-    private IEnumerator FindPlayer()
-    {
-        yield return new WaitForEndOfFrame();
-        playerRef = GameManager.instance.player;
-    }
 }

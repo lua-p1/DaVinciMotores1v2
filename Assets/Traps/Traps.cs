@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 public abstract class Traps : MonoBehaviour
 {
@@ -6,12 +5,7 @@ public abstract class Traps : MonoBehaviour
     protected int _damage;
     protected virtual void Start()
     {
-        StartCoroutine(FindLife());
-    }
-    protected abstract void Action();
-    private IEnumerator FindLife()
-    {
-        yield return new WaitForEndOfFrame();
         _life = GameManager.instance.player.GetLife;
     }
+    protected abstract void Action();
 }
