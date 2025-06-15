@@ -29,8 +29,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
-        //DelegatesManager.instance.AddAction(ActionEnum.PLAYERSPEED, (Action<float, float, float>)StartSpeedBuff);
-        //DelegatesManager.instance.AddAction(ActionEnum.PLAYERMASS, (Action<float, float, int>)StartMassBuff);
+        //DelegatesManager.instance.AddAction(KeysDelegatesEnum.PLAYERSPEED, (Action<float, float, float>)StartSpeedBuff);
+        //DelegatesManager.instance.AddAction(KeysDelegatesEnum.PLAYERMASS, (Action<float, float, int>)StartMassBuff);
     }
     private void Update()
     {

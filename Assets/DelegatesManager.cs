@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-public enum ActionEnum
+public enum KeysDelegatesEnum
 {
     PlayerSpeed,
     PlayerMass,
@@ -9,27 +9,23 @@ public enum ActionEnum
 }
 public class DelegatesManager : MonoBehaviour
 {
-    public Dictionary<ActionEnum,Delegate> actions;
+    private Dictionary<KeysDelegatesEnum,Delegate> _actions;
     public static DelegatesManager instance;
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-        }
         else
-        {
             Destroy(this.gameObject);
-        }
-        actions = new Dictionary<ActionEnum, Delegate>();
+        _actions = new Dictionary<KeysDelegatesEnum,Delegate>();
     }
-    public void AddAction(ActionEnum key, Delegate value)
+    public void AddAction(KeysDelegatesEnum key, Delegate value)
     {
-        actions.Add(key, value);
+        _actions.Add(key, value);
     }
-    public object TriggerAction(ActionEnum key, params object[] ars)
+    public object TriggerAction(KeysDelegatesEnum key,params object[] ars)
     {
-        if (actions.TryGetValue(key, out var value))
+        if (_actions.TryGetValue(key, out var value))
         {
             return value?.DynamicInvoke(ars);
         }
