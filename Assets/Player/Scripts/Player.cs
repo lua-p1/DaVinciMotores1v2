@@ -26,13 +26,13 @@ public class Player : MonoBehaviour
         _life = new Life(this.gameObject, _initLife);
         _rayCastPj = new RaycastPj(transform, 50f);
         _controller = new Controller(_movement, this, _rayCastPj, _groundChecker, layerMaskGround);
-        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerSpeed, (Action<float, float, float>)StartSpeedBuff);
-        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerMass, (Action<float, float, float>)StartMassBuff);
-        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerJump, (Action<float, float, float>)StartJumpBuff);
     }
     private void Start()
     {
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
+        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerSpeed, (Action<float, float, float>)StartSpeedBuff);
+        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerMass, (Action<float, float, float>)StartMassBuff);
+        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerJump, (Action<float, float, float>)StartJumpBuff);
     }
     private void Update()
     {
