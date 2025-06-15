@@ -5,7 +5,7 @@ public class BoostedJump : PowerUps
     protected override void Start()
     {
         base.Start();
-        StartCoroutine(FindJumpInit());
+        StartCoroutine(FindInitJump());
     }
     protected override void ActivateBuff()
     {
@@ -14,11 +14,10 @@ public class BoostedJump : PowerUps
             DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerJump, buff, notBuff, buffTime);
         }
     }
-    private IEnumerator FindJumpInit()
+    private IEnumerator FindInitJump()
     {
         yield return new WaitForEndOfFrame();
-        buff = 10f;
+        buff = playerRef.GetInitJump * 2.5f;
         notBuff = playerRef.GetInitJump;
-        buffTime = 3f;
     }
 }
