@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 public class Medikit : MonoBehaviour, IInteractiveObject
 {
-    private Life life;
+    private Life _life;
     public int restoreLife;
     private void Start()
     {
@@ -10,8 +10,8 @@ public class Medikit : MonoBehaviour, IInteractiveObject
     }
     public void InteractAction()
     {
-        if (life == null) return;
-        life.RestoreLife(restoreLife);
+        if (_life == null) return;
+        _life.RestoreLife(restoreLife);
     }
     private void Update()
     {
@@ -23,6 +23,6 @@ public class Medikit : MonoBehaviour, IInteractiveObject
     private IEnumerator FindLife()
     {
         yield return new WaitForEndOfFrame();
-        life = GameManager.instance.player.GetLife;
+        _life = GameManager.instance.player.GetLife;
     }
 }
