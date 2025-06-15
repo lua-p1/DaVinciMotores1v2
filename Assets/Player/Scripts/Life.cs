@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class Life
 {
@@ -28,4 +29,9 @@ public class Life
         Debug.Log($"Vida actual: {_life}");
     }
         public float GetLife { get => _life; }
+
+    public static implicit operator float(Life v)
+    {
+        throw new NotImplementedException();
+    }
 }
