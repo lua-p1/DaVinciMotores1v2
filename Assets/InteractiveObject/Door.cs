@@ -1,25 +1,23 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 public class Door : MonoBehaviour, IInteractiveObject
 {
     public Animation anim;
-    private bool _canPlay;
-    private float _cooldown;
+    private bool _isOpen;
     private void Start()
     {
-        _canPlay = true;
-        _cooldown = 5f;
+        _isOpen = false;
     }
     public void InteractAction()
     {
-        if (!_canPlay) return;
-        anim.Play("DoorOpen_animation");
-        _canPlay = false;
-        
-    }
-    IEnumerator CooldownCourutine()
-    {
-        yield return new WaitForSeconds(_cooldown);
+        if (!_isOpen)
+        {
+            anim.Play("DoorOpen_animation");
+            _isOpen = true;
+        }
+        else
+        {
+            anim.Play("DoorClose_animation");
+            _isOpen = false;
+        }
     }
 }
