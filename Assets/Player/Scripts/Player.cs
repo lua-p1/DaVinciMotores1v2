@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]private RaycastPj _rayCastPj;
     [SerializeField]private Life _life;
     [SerializeField]private Transform _groundChecker;
+    [SerializeField] private Transform _interactPos;
     public LayerMask layerMaskGround;
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _movement = new Movement(this.transform, _initSpeed, _rb, _initJumpForce);
         _life = new Life(_initLife);
-        _rayCastPj = new RaycastPj(transform, 50f);
+        _rayCastPj = new RaycastPj(_interactPos, 50f);
         _controller = new Controller(_movement, this, _rayCastPj, _groundChecker, layerMaskGround);
         DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerSpeed, (Action<float, float, float>)StartSpeedBuff);
         DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerMass, (Action<float, float, float>)StartMassBuff);

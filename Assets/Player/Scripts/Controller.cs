@@ -36,6 +36,7 @@ public class Controller
         CheckJumpKey();
         GetMovementInputs();
         CheckGround();
+        PlayerInteract();
     }
     private void CheckJumpKey()
     {
@@ -51,5 +52,12 @@ public class Controller
     private void CheckGround()
     {
         _isGrounded = Physics.CheckSphere(_groundChecker.position, _radiusCheckSpehere, _layerMask);
+    }
+    private void PlayerInteract()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _raycastPj.Interact();
+        }
     }
 }
