@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 public class TurretBehaviour : Traps
 {
@@ -28,7 +27,7 @@ public class TurretBehaviour : Traps
     }
     protected override void Action()
     {
-        if (_child == null || _life == null || GameManager.instance.player == null) return;
+        if (_child == null || _lifeRef == null || GameManager.instance.player == null) return;
         Vector3 _dirRotVector = GameManager.instance.player.transform.position - this.transform.position;
         Quaternion _dirRotQuaternion = Quaternion.LookRotation(_dirRotVector);
         _child.transform.rotation = Quaternion.Slerp(_child.transform.rotation, _dirRotQuaternion, 5 * Time.deltaTime);

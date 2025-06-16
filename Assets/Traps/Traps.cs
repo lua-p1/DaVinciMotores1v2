@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEngine;
 public abstract class Traps : MonoBehaviour
 {
-    protected Life _life;
-    protected int _damage;
+    protected Life _lifeRef;
+    protected float _damage;
     protected virtual void Start()
     {
         StartCoroutine(WaitForPlayer());
@@ -12,7 +12,7 @@ public abstract class Traps : MonoBehaviour
     private IEnumerator WaitForPlayer()
     {
         yield return new WaitForEndOfFrame();
-        _life = GameManager.instance.player?.GetLife;
+        _lifeRef = GameManager.instance.player?.GetLife;
     }
 }
 

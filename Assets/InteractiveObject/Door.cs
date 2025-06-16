@@ -1,22 +1,23 @@
 using UnityEngine;
 public class Door : MonoBehaviour, IInteractiveObject
 {
-    public Animation anim;
+    private Animation _anim;
     private bool _isOpen;
     private void Start()
     {
         _isOpen = false;
+        _anim = GetComponent<Animation>();
     }
     public void InteractAction()
     {
         if (!_isOpen)
         {
-            anim.Play("DoorOpen_animation");
+            _anim.Play("DoorOpen_animation");
             _isOpen = true;
         }
         else
         {
-            anim.Play("DoorClose_animation");
+            _anim.Play("DoorClose_animation");
             _isOpen = false;
         }
     }
