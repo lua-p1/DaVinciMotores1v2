@@ -13,15 +13,17 @@ public class Life
             DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerDeath);
         }
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         _life -= damage;
         CheckLife();
         Debug.Log($"Vida actual: {_life}");
     }
-    public void RestoreLife(int life)
+    public void RestoreLife(float life)
     {
+        if (_life >= 100f) return;
         _life += life;
+        _life = Mathf.Clamp( _life,0f,100f);
         CheckLife();
         Debug.Log($"Vida actual: {_life}");
     }

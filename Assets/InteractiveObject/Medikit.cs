@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 public class Medikit : MonoBehaviour, IInteractiveObject
 {
@@ -11,9 +10,9 @@ public class Medikit : MonoBehaviour, IInteractiveObject
     }
     public void InteractAction()
     {
-        Debug.Log("medikit");
         if (_life == null) return;
         _life.RestoreLife(_restoreLife);
+        if (_life.GetLife >= 100f) return;
         Destroy(gameObject);
     }
     private IEnumerator WaitForPlayer()

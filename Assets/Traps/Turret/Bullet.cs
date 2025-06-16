@@ -4,11 +4,11 @@ public class Bullet : MonoBehaviour
 {
     private float _speed;
     private bool _isDesactivate;
-    private int _dmgPlayer;
+    private float _dmgPlayer;
     private float _timeToDesactivate;
     private void Awake()
     {
-        _dmgPlayer = 50;
+        _dmgPlayer = 50f;
         _speed = 5f;
         _timeToDesactivate = 5f;
     }

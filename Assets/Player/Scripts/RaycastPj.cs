@@ -14,7 +14,6 @@ public class RaycastPj
         Debug.DrawRay(ray.origin, ray.direction * _distanceRay, Color.red);
         if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, _distanceRay))
         {
-            Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.TryGetComponent<IInteractiveObject>(out var InteractuableObject))
             {
                 InteractuableObject.InteractAction();
