@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         _dmgPlayer = 50f;
-        _speed = 5f;
+        _speed = 20f;
         _timeToDesactivate = 5f;
     }
     private void OnEnable()
