@@ -1,31 +1,30 @@
 using UnityEngine;
 public class Life
 {
-    private float _life;
-    public Life(float _life)
+    private float _currentLife;
+    public Life(float _currentLife)
     {
-        this._life = _life;
+        this._currentLife = _currentLife;
     }
     private void CheckLife()
     {
-        if (_life <= 0)
+        if (_currentLife <= 0)
         {
             DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerDeath);
         }
     }
     public void TakeDamage(float damage)
     {
-        _life -= damage;
+        _currentLife -= damage;
         CheckLife();
-        Debug.Log($"Vida actual: {_life}");
+        Debug.Log($"Vida actual: {_currentLife}");
     }
-    public void RestoreLife(float life)
+    public void RestoreLife(float restoreLife)
     {
-        if (_life >= 100f) return;
-        _life += life;
-        _life = Mathf.Clamp( _life,0f,100f);
+        _currentLife += restoreLife;
+        _currentLife = Mathf.Clamp( _currentLife,0f,100f);
         CheckLife();
-        Debug.Log($"Vida actual: {_life}");
+        Debug.Log($"Vida actual: {_currentLife}");
     }
-    public float GetLife { get => _life; }
+    public float GetLife { get => _currentLife; }
 }

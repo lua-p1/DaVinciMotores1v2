@@ -12,8 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField]private RaycastPj _rayCastPj;
     [SerializeField]private Life _life;
     [SerializeField]private Transform _groundChecker;
-    [SerializeField] private Transform _interactPos;
-    public LayerMask layerMaskGround;
+    [SerializeField]private Transform _interactPos;
+    [SerializeField]private LayerMask layerMaskGround;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();

@@ -10,11 +10,11 @@ public class Spikes : Traps
         base.Start();
         _canDamage = true;
         _cooldown = 2f;
-        _damage = 10;
+        _damage = 10f;
     }
     private void OnTriggerStay(Collider other)
     {
-        if (_life == null) return;
+        if (_lifeRef == null) return;
         if (!other.CompareTag("Player") || !_canDamage) return;
         _canDamage = false;
         Action();
@@ -23,8 +23,8 @@ public class Spikes : Traps
     }
     protected override void Action()
     {
-        if (_life == null || _life.GetLife <= 0) return;
-        _life.TakeDamage(_damage);
+        if (_lifeRef == null || _lifeRef.GetLife <= 0) return;
+        _lifeRef.TakeDamage(_damage);
     }
     IEnumerator CooldownCourutine()
     {

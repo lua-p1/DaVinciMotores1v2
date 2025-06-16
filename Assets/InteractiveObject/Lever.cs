@@ -1,17 +1,18 @@
 using UnityEngine;
 public class Lever : MonoBehaviour, IInteractiveObject
 {
-    public Animation anim;
+    private Animation _anim;
     private bool _canPlay;
     public TurretBehaviour turretRef;
     private void Start()
     {
         _canPlay = true;
+        _anim = GetComponentInChildren<Animation>();
     }
     public void InteractAction()
     {
         if (!_canPlay) return;
-        anim.Play("Lever_animation");
+        _anim.Play("Lever_animation");
         if (turretRef == null) return;
         turretRef.OnDead();
         _canPlay = false;
