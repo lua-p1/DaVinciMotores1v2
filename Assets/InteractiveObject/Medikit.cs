@@ -1,26 +1,24 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 public class Medikit : MonoBehaviour, IInteractiveObject
 {
     private Life _life;
-    public int restoreLife;
+    [SerializeField]private int _restoreLife;
     private void Start()
     {
-        _life = GameManager.instance.player.GetLife;
+        StartCoroutine(WaitForPlayer());
     }
     public void InteractAction()
     {
+        Debug.Log("medikit");
         if (_life == null) return;
-        _life.RestoreLife(restoreLife);
+        _life.RestoreLife(_restoreLife);
+        Destroy(gameObject);
     }
-    private void Update()
+    private IEnumerator WaitForPlayer()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            InteractAction();
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            _life.TakeDamage(20);
-        }
+        yield return new WaitForEndOfFrame();
+        _life = GameManager.instance.player?.GetLife;
     }
 }
