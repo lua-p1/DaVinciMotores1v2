@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class TurretBehaviour : Traps
 {
@@ -5,6 +6,8 @@ public class TurretBehaviour : Traps
     private float _shootCooldown;
     private float _fireRate;
     private float _distance;
+    private bool _isActivate;
+    [SerializeField]private Animation _anim;
     [SerializeField]private Transform _child;
     [SerializeField]private Transform _GunSight;
     [SerializeField]private Material lineRendererMaterial;
@@ -14,10 +17,13 @@ public class TurretBehaviour : Traps
         base.Start();
         _distance = 50f;
         _fireRate = 0.3f;
+        _isActivate = true;
+        _anim = GetComponent<Animation>();
         _rayTurret = new RayCastTurret(_GunSight, mask, _distance, lineRendererMaterial,this);
     }
     private void Update()
     {
+        if (!_isActivate) return;
         Action();
     }
     protected override void Action()
@@ -41,4 +47,11 @@ public class TurretBehaviour : Traps
         bullet.transform.position = _GunSight.position;
         bullet.transform.rotation = _GunSight.rotation;
     }
+    public void OnDead()
+    {
+        _isActivate = false;
+        _anim.Play("TurretDead");
+        _rayTurret.GetLineRenderer.enabled = false;
+    }
+    public bool SetActivate { set => _isActivate = value; }
 }

@@ -71,4 +71,5 @@ public class RayCastTurret
         _lineRenderer.endColor = Color.green;
     }
     public bool IsEnabled { get => _enabled; }
+    public LineRenderer GetLineRenderer { get => _lineRenderer; }
 }
