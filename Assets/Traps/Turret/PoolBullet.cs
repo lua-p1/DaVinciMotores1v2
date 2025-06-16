@@ -43,5 +43,4 @@ public class PoolBullet : MonoBehaviour
         _auxBullet.SetActive(true);
         return _auxBullet;
     }
-
 }

@@ -13,16 +13,16 @@ public class TurretBehaviour : Traps
     {
         base.Start();
         _distance = 50f;
-        _fireRate = 0.5f;
+        _fireRate = 0.3f;
         _rayTurret = new RayCastTurret(_GunSight, mask, _distance, lineRendererMaterial,this);
     }
-    void Update()
+    private void Update()
     {
         Action();
     }
     protected override void Action()
     {
-        if (_child == null || _life == null) return;
+        if (_child == null || _life == null || GameManager.instance.player == null) return;
         Vector3 _dirRotVector = GameManager.instance.player.transform.position - this.transform.position;
         Quaternion _dirRotQuaternion = Quaternion.LookRotation(_dirRotVector);
         _child.transform.rotation = Quaternion.Slerp(_child.transform.rotation, _dirRotQuaternion, 5 * Time.deltaTime);
