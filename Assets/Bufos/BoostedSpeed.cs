@@ -5,13 +5,10 @@ public class BoostedSpeed : PowerUps
     {
         base.Start();
         notBuff = playerRef.GetInitSpeed;
-        buff = playerRef.GetInitSpeed * 5;
+        buff = playerRef.GetInitSpeed * 1;
     }
     protected override void ActivateBuff()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerSpeed, buff, notBuff, buffTime);
-        }
+        DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerSpeed, buff, notBuff, buffTime);
     }
 }

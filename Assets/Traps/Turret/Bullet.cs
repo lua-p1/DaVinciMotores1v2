@@ -28,6 +28,10 @@ public class Bullet : MonoBehaviour
             player.GetLife.TakeDamage(_dmgPlayer);
             DesactivateBullet();
         }
+        if(other.gameObject.layer == 0)
+        {
+            DesactivateBullet();
+        }
     }
     IEnumerator DesactivateBulletCourutine()
     {

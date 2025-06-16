@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _initSpeed = 10f;
         _initLife = 100f;
-        _initJumpForce = 5f;
+        _initJumpForce = 3f;
     }
     private void Start()
     {

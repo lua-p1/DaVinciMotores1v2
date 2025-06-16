@@ -1,17 +1,13 @@
-using UnityEngine;
 public class BoostedMass : PowerUps
 {
     protected override void Start()
     {
         base.Start();
-        buff = 50f;
+        buff = 15f;
         notBuff = 1f;
     }
     protected override void ActivateBuff()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerMass, buff, notBuff, buffTime);
-        }
+        DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerMass, buff, notBuff, buffTime);
     }
 }
