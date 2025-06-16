@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0.00000049274723, y: 7.4200683, z: -0.44090742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 177841394145161036}
   m_Father: {fileID: 1481296638323944216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &221458585833322637
@@ -83,6 +84,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2237036995569281419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 177841394145161036}
+  m_Layer: 0
+  m_Name: GunSight
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &177841394145161036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237036995569281419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.54, y: 7.6, z: 28.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3914473550882281048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3385623472911225591
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1481296638323944216}
   - component: {fileID: 1608666773171704321}
+  - component: {fileID: 2500067003447516692}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -222,6 +255,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 50, y: 40, z: 50}
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &2500067003447516692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124887905028514628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eccd259375cd54d41a089318a36d0310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _child: {fileID: 3914473550882281048}
+  _GunSight: {fileID: 177841394145161036}
+  lineRendererMaterial: {fileID: 2100000, guid: 10776a534391eee4b987207aa907e046, type: 2}
+  mask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &6404071187004077184
 GameObject:
   m_ObjectHideFlags: 0
