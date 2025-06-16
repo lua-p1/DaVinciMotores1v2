@@ -3,9 +3,9 @@ public class TurretBehaviour : Traps
 {
     private RayCastTurret _rayTurret;
     private float _shootCooldown;
-    private float _fireRate;
     private float _distance;
     private bool _isActivate;
+    [SerializeField] private float _fireRate;
     [SerializeField]private Animation _anim;
     [SerializeField]private Transform _child;
     [SerializeField]private Transform _GunSight;
@@ -15,7 +15,6 @@ public class TurretBehaviour : Traps
     {
         base.Start();
         _distance = 50f;
-        _fireRate = 0.3f;
         _isActivate = true;
         _anim = GetComponent<Animation>();
         _rayTurret = new RayCastTurret(_GunSight, mask, _distance, lineRendererMaterial,this);
