@@ -14,10 +14,13 @@ public class Movement
     }
     public void Move(Vector2 inputs)
     {
-        var _dir = _transform.forward * inputs.y + _transform.right * inputs.x;
-        _dir = _dir.normalized;
-        var _movPosVector = _rb.position + _dir * _speed * Time.fixedDeltaTime;
-        _rb.MovePosition(_movPosVector);
+        var _dir = new Vector3(inputs.x, 0, inputs.y);
+        if (inputs != Vector2.zero)
+        {
+            Quaternion rot = Quaternion.LookRotation(_dir);
+            _rb.MoveRotation(Quaternion.Slerp(_rb.rotation,rot,5f * Time.fixedDeltaTime));
+        }
+        _rb.MovePosition(_rb.position += _dir * _speed * Time.fixedDeltaTime);
     }
     public void Jump()
     {
