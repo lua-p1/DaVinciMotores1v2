@@ -2,7 +2,6 @@ using UnityEngine;
 public class Controller
 {
     private Movement _movement;
-    private Player _player;
     private RaycastPj _raycastPj;
     private Transform _groundChecker;
     private LayerMask _layerMask;
@@ -10,10 +9,9 @@ public class Controller
     private bool _jumpPressed;
     private bool _isGrounded;
     private float _radiusCheckSpehere;
-    public Controller(Movement _movement, Player _player, RaycastPj _raycastPj, Transform _groundChecker, LayerMask _layerMask)
+    public Controller(Movement _movement, RaycastPj _raycastPj, Transform _groundChecker, LayerMask _layerMask)
     {
         this._movement = _movement;
-        this._player = _player;
         this._raycastPj = _raycastPj;
         this._groundChecker = _groundChecker;
         this._layerMask = _layerMask;

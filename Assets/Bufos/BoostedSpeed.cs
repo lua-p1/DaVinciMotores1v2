@@ -5,7 +5,7 @@ public class BoostedSpeed : PowerUps
     {
         base.Start();
         notBuff = playerRef.GetInitSpeed;
-        buff = playerRef.GetInitSpeed * 1;
+        buff = playerRef.GetInitSpeed * 2;
     }
     protected override void ActivateBuff()
     {

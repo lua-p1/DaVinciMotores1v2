@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         _movement = new Movement(this.transform, _initSpeed, _rb, _initJumpForce);
         _life = new Life(_initLife);
         _rayCastPj = new RaycastPj(_interactPos, 50f);
-        _controller = new Controller(_movement, this, _rayCastPj, _groundChecker, layerMaskGround);
+        _controller = new Controller(_movement,_rayCastPj,_groundChecker,layerMaskGround);
         DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerSpeed, (Action<float, float, float>)StartSpeedBuff);
         DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerMass, (Action<float, float, float>)StartMassBuff);
         DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerJump, (Action<float, float, float>)StartJumpBuff);
@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _controller.OnUpdate();
+        print(_movement.GetAndSetJump);
     }
     private void FixedUpdate()
     {
