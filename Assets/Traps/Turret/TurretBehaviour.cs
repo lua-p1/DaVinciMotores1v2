@@ -5,7 +5,7 @@ public class TurretBehaviour : Traps
     private float _shootCooldown;
     private float _distance;
     private bool _isActivate;
-    [SerializeField] private float _fireRate;
+    [SerializeField]private float _fireRate;
     [SerializeField]private Animation _anim;
     [SerializeField]private Transform _child;
     [SerializeField]private Transform _GunSight;

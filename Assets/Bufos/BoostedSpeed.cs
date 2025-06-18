@@ -1,4 +1,3 @@
-using UnityEngine;
 public class BoostedSpeed : PowerUps
 {
     protected override void Start()
