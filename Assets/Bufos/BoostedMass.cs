@@ -3,7 +3,7 @@ public class BoostedMass : PowerUps
     protected override void Start()
     {
         base.Start();
-        buff = 15f;
+        buff = 50f;
         notBuff = 1f;
     }
     protected override void ActivateBuff()
