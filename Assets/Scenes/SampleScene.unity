@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4705,7 +4705,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1a63e9741212953439eb3b7809e84314, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8124,7 +8124,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1781ec2f1e2ff7044ac92dbd4754aa3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11458,7 +11458,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8e4eccc2d3c193c4caf0920be7d149a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11916,8 +11916,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.28487617, y: 0.011503398, z: -0.003414169, w: 0.9584893}
-  m_LocalPosition: {x: -5.3998966, y: 7.3842072, z: -35.113674}
+  m_LocalRotation: {x: 0.32346788, y: 0.004262863, z: -0.0014359418, w: 0.94622844}
+  m_LocalPosition: {x: -41.14895, y: 9.930922, z: -55.278774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15404,7 +15404,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1a63e9741212953439eb3b7809e84314, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20978,7 +20978,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8e4eccc2d3c193c4caf0920be7d149a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23185,7 +23185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4401023711392862801, guid: 6a8695bbda244634a87ea0b1c2fdb993, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9
+      value: -41.89
       objectReference: {fileID: 0}
     - target: {fileID: 4401023711392862801, guid: 6a8695bbda244634a87ea0b1c2fdb993, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23193,7 +23193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4401023711392862801, guid: 6a8695bbda244634a87ea0b1c2fdb993, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.9
+      value: -44.83
       objectReference: {fileID: 0}
     - target: {fileID: 4401023711392862801, guid: 6a8695bbda244634a87ea0b1c2fdb993, type: 3}
       propertyPath: m_LocalRotation.w
