@@ -1,4 +1,3 @@
-using UnityEngine;
 public class BoostedJump : PowerUps
 {
     protected override void Start()
