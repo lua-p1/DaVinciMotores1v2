@@ -8,9 +8,9 @@ public class CameraFollow : MonoBehaviour
         _playerRef = GameManager.instance.player;
         _offset = this.transform.position - _playerRef.transform.position;
     }
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (_playerRef == null) return;
-        transform.position = _playerRef.transform.position + _offset;
+        transform.position = Vector3.Lerp(this.transform.position, _playerRef.transform.position + _offset, 5 * Time.deltaTime);
     }
 }
