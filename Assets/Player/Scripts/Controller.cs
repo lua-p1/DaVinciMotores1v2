@@ -33,7 +33,7 @@ public class Controller
             }
             else
             {
-                _movement.RotateOnly(moveDir);
+                _movement.RotateOnly(_movInputs);
             }
         }
         if (_jumpPressed && _isGrounded)

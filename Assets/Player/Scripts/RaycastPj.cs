@@ -12,7 +12,7 @@ public class RaycastPj
     {
         Ray ray = new Ray(_transform.position, _transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * _distanceRay, Color.red);
-        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, _distanceRay))
+        if (Physics.Raycast(ray,out RaycastHit hit, _distanceRay))
         {
             if (hit.transform.gameObject.TryGetComponent<IInteractiveObject>(out var InteractuableObject))
             {

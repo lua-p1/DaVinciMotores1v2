@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Windows;
 public class Movement
 {
     private float _speed;
@@ -24,8 +25,10 @@ public class Movement
         Vector3 _newPos = _rb.position + _dir * _speed * Time.fixedDeltaTime;
         _rb.MovePosition(_newPos);
     }
-    public void RotateOnly(Vector3 _dir)
+    public void RotateOnly(Vector2 inputs)
     {
+        var _dir = new Vector3(inputs.x, 0, inputs.y);
+        _dir.Normalize();
         if (_dir != Vector3.zero)
         {
             Quaternion rot = Quaternion.LookRotation(_dir);

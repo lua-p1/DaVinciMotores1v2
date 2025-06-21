@@ -7,7 +7,6 @@ public enum KeysDelegatesEnumEvents
 }
 public enum KeysDelegatesEnumWoutFirm
 {
-
 }
 public class DelegatesManager : MonoBehaviour
 {
