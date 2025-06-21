@@ -48,7 +48,9 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
     public IEnumerator ChangeMass(float buff, float notBuff, float time)
     {
         _movement.GetAndSetMass = buff;
+        DelegatesManager.instance.TriggerAction(KeysDelegatesEnumEvents.ChangeMovile);
         yield return new WaitForSeconds(time);
+        DelegatesManager.instance.TriggerAction(KeysDelegatesEnumEvents.ChangeMovile);
         _movement.GetAndSetMass = notBuff;
     }
     public IEnumerator ChangeSpeed(float buff, float notBuff, float time)

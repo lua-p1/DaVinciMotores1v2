@@ -4,6 +4,7 @@ using UnityEngine;
 public enum KeysDelegatesEnumEvents
 {
     PlayerDeath,
+    ChangeMovile
 }
 public enum KeysDelegatesEnumWoutFirm
 {
@@ -47,7 +48,7 @@ public class DelegatesManager : MonoBehaviour
     public void AddAction(KeysDelegatesEnumWoutFirm key, Delegate value)
     {
         if (_generalActions.ContainsKey(key)) return;
-        _generalActions.Add(key, value);
+        _generalActions.Add(key,value);
     }
     public void RemoveAction(KeysDelegatesEnumWoutFirm key)
     {
