@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed , ITakeDamage
@@ -28,12 +27,11 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
         _life = new Life(_initLife);
         _rayCastPj = new RaycastPj(_interactPos, 50f);
         _controller = new Controller(_movement,_rayCastPj,_groundChecker,layerMaskGround);
-        DelegatesManager.instance.AddAction(KeysDelegatesEnum.PlayerDeath,(Action)PlayerDeath);
+        DelegatesManager.instance.AddAction(KeysDelegatesEnumEvents.PlayerDeath, PlayerDeath);
     }
     private void Update()
     {
         _controller.OnUpdate();
-        print(_movement.GetAndSetJump);
     }
     private void FixedUpdate()
     {
@@ -87,7 +85,7 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
         _controller = null;
         _life = null;
         _rayCastPj = null;
-        DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerDeath);
+        DelegatesManager.instance.RemoveAction(KeysDelegatesEnumEvents.PlayerDeath, PlayerDeath);
     }
     public void TakeDamage(float damage)
     {
