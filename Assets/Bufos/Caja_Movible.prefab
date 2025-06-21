@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6623967708133402204}
   - component: {fileID: 1441040439027909474}
   - component: {fileID: 1399529426275259}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Caja_Movible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
