@@ -16,7 +16,7 @@ public class Movement
     {
         var _dir = new Vector3(inputs.x, 0, inputs.y);
         _dir.Normalize();
-        if (inputs != Vector2.zero)
+        if (_dir != Vector3.zero)
         {
             Quaternion rot = Quaternion.LookRotation(_dir);
             _rb.MoveRotation(Quaternion.Slerp(_rb.rotation,rot,5f * Time.fixedDeltaTime));
