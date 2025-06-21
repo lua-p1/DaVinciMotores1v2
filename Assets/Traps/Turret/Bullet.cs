@@ -4,11 +4,11 @@ public class Bullet : MonoBehaviour
 {
     private float _speed;
     private bool _isDesactivate;
-    private float _dmgPlayer;
+    private float _dmg;
     private float _timeToDesactivate;
     private void Awake()
     {
-        _dmgPlayer = 50f;
+        _dmg = 50f;
         _speed = 20f;
         _timeToDesactivate = 5f;
     }
@@ -23,9 +23,9 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<Player>(out var player))
+        if(other.TryGetComponent<ITakeDamage>(out var damagable))
         {
-            player.GetLife.TakeDamage(_dmgPlayer);
+            damagable.TakeDamage(_dmg);
             DesactivateBullet();
         }
         if(other.gameObject.layer == 0)

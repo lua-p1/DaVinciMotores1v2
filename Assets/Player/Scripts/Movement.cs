@@ -24,6 +24,14 @@ public class Movement
         Vector3 _newPos = _rb.position + _dir * _speed * Time.fixedDeltaTime;
         _rb.MovePosition(_newPos);
     }
+    public void RotateOnly(Vector3 dir)
+    {
+        if (dir != Vector3.zero)
+        {
+            Quaternion rot = Quaternion.LookRotation(dir);
+            _rb.MoveRotation(Quaternion.Slerp(_rb.rotation, rot, 5f * Time.fixedDeltaTime));
+        }
+    }
     public void Jump()
     {
         _rb.AddForce(_transform.up * _jumpForce, ForceMode.Impulse);

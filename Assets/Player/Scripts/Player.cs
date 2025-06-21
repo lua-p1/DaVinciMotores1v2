@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed
+public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed , ITakeDamage
 {
     [SerializeField]private float _initSpeed;
     [SerializeField]private float _initLife;
@@ -88,6 +88,10 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed
         _life = null;
         _rayCastPj = null;
         DelegatesManager.instance.RemoveAction(KeysDelegatesEnum.PlayerDeath);
+    }
+    public void TakeDamage(float damage)
+    {
+        _life.TakeDamage(damage);
     }
     public Life GetLife { get => _life; }
     public Movement GetMovement { get => _movement; }

@@ -21,7 +21,20 @@ public class Controller
     }
     public void OnFixedUpdate()
     {
-        _movement.Move(_movInputs);
+        Vector3 moveDir = new Vector3(_movInputs.x, 0, _movInputs.y).normalized;
+        if (moveDir != Vector3.zero)
+        {
+            bool blocked = _raycastPj.IsObstacleInDirection(moveDir);
+
+            if (!blocked)
+            {
+                _movement.Move(_movInputs);
+            }
+            else
+            {
+                _movement.RotateOnly(moveDir);
+            }
+        }
         if (_jumpPressed && _isGrounded)
         {
             _movement.Jump();
