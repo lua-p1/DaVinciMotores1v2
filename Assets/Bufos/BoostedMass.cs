@@ -1,3 +1,4 @@
+using UnityEngine;
 public class BoostedMass : PowerUps
 {
     protected override void Start()
@@ -7,8 +8,12 @@ public class BoostedMass : PowerUps
         notBuff = 1f;
         buffTime = 20f;
     }
-    protected override void ActivateBuff()
+    protected override void OnTriggerEnter(Collider other)
     {
-        DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerMass, buff, notBuff, buffTime);
+        if (other.TryGetComponent<IBoostedMass>(out var BoostedEntity))
+        {
+            BoostedEntity.StartMassBuff(buff, notBuff, buffTime);
+            Destroy(gameObject);
+        }
     }
 }

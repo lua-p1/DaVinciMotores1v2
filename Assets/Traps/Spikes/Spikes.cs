@@ -7,24 +7,23 @@ public class Spikes : Traps
     [SerializeField]private Coroutine _coroutine;
     protected override void Start()
     {
-        base.Start();
         _canDamage = true;
         _cooldown = 2f;
         _damage = 10f;
     }
     private void OnTriggerStay(Collider other)
     {
-        if (_lifeRef == null) return;
-        if (!other.CompareTag("Player") || !_canDamage) return;
-        _canDamage = false;
-        Action();
-        if (_coroutine == null)
-            _coroutine = StartCoroutine(CooldownCourutine());
+        if(other.TryGetComponent<ITakeDamage>(out var damagableObject) && _canDamage)
+        {
+            damagableObject.TakeDamage(_damage);
+            _canDamage = false;
+            Action();
+        }
     }
     protected override void Action()
     {
-        if (_lifeRef == null || _lifeRef.GetLife <= 0) return;
-        _lifeRef.TakeDamage(_damage);
+        if (_coroutine == null)
+            _coroutine = StartCoroutine(CooldownCourutine());
     }
     IEnumerator CooldownCourutine()
     {

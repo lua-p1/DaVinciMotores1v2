@@ -10,7 +10,7 @@ public class Life
     {
         if (_currentLife <= 0)
         {
-            DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerDeath);
+            DelegatesManager.instance.TriggerAction(KeysDelegatesEnumEvents.PlayerDeath);
         }
     }
     public void TakeDamage(float damage)

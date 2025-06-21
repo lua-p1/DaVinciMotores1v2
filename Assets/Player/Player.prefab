@@ -110,6 +110,9 @@ MonoBehaviour:
   layerMaskGround:
     serializedVersion: 2
     m_Bits: 64
+  layerMaskWall:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!33 &2442260508405798587
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6949543528454850798}
   - component: {fileID: 4024062037329536967}
   - component: {fileID: 4388506080904060683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BuffoSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8708397438788391444}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 37.760525, y: 6.2001305, z: -25.219324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -13,7 +13,6 @@ public class TurretBehaviour : Traps
     [SerializeField]private LayerMask mask;
     protected override void Start()
     {
-        base.Start();
         _distance = 50f;
         _isActivate = true;
         _anim = GetComponent<Animation>();
@@ -26,7 +25,7 @@ public class TurretBehaviour : Traps
     }
     protected override void Action()
     {
-        if (_child == null || _lifeRef == null || GameManager.instance.player == null) return;
+        if (_child == null || GameManager.instance.player == null) return;
         Vector3 _dirRotVector = GameManager.instance.player.transform.position - this.transform.position;
         Quaternion _dirRotQuaternion = Quaternion.LookRotation(_dirRotVector);
         _child.transform.rotation = Quaternion.Slerp(_child.transform.rotation, _dirRotQuaternion, 5 * Time.deltaTime);

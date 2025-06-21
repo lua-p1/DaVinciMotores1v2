@@ -1,3 +1,4 @@
+using UnityEngine;
 public class BoostedJump : PowerUps
 {
     protected override void Start()
@@ -6,8 +7,12 @@ public class BoostedJump : PowerUps
         buff = playerRef.GetInitJump * 3f;
         notBuff = playerRef.GetInitJump;
     }
-    protected override void ActivateBuff()
+    protected override void OnTriggerEnter(Collider other)
     {
-        DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerJump, buff, notBuff, buffTime);
+        if (other.TryGetComponent<IBoostedJump>(out var BoostedEntity))
+        {
+            BoostedEntity.StartJumpBuff(buff, notBuff, buffTime);
+            Destroy(gameObject);
+        }
     }
 }

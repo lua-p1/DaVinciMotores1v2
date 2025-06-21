@@ -20,4 +20,10 @@ public class RaycastPj
             }
         }
     }
+    public bool IsObstacleInDirection(Vector3 direction,LayerMask mask ,float checkDistance = 0.6f)
+    {
+        Ray ray = new Ray(_transform.position, direction);
+        Debug.DrawRay(ray.origin, ray.direction * checkDistance, Color.green);
+        return Physics.Raycast(ray, checkDistance, mask);
+    }
 }
