@@ -26,7 +26,7 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _movement = new Movement(this.transform, _initSpeed, _rb, _initJumpForce);
         _life = new Life(_initLife);
-        _rayCastPj = new RaycastPj(_interactPos, 50f);
+        _rayCastPj = new RaycastPj(_interactPos, 5f);
         _controller = new Controller(_movement,_rayCastPj,_groundChecker,layerMaskGround, layerMaskWall);
         DelegatesManager.instance.AddAction(KeysDelegatesEnumEvents.PlayerDeath, PlayerDeath);
     }
@@ -77,7 +77,6 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
     }
     private void PlayerDeath()
     {
-        Debug.Log("Me mori");
         Destroy(gameObject);
     }
     private void OnDestroy()

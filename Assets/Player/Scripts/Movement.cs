@@ -24,11 +24,11 @@ public class Movement
         Vector3 _newPos = _rb.position + _dir * _speed * Time.fixedDeltaTime;
         _rb.MovePosition(_newPos);
     }
-    public void RotateOnly(Vector3 dir)
+    public void RotateOnly(Vector3 _dir)
     {
-        if (dir != Vector3.zero)
+        if (_dir != Vector3.zero)
         {
-            Quaternion rot = Quaternion.LookRotation(dir);
+            Quaternion rot = Quaternion.LookRotation(_dir);
             _rb.MoveRotation(Quaternion.Slerp(_rb.rotation, rot, 5f * Time.fixedDeltaTime));
         }
     }
