@@ -10,13 +10,5 @@ public abstract class PowerUps : MonoBehaviour
         playerRef = GameManager.instance.player;
         buffTime = 3f;
     }
-    protected virtual void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Player>())
-        {
-            ActivateBuff();
-            Destroy(gameObject);
-        }
-    }
-    protected abstract void ActivateBuff();
+    protected abstract void OnTriggerEnter(Collider other);
 }

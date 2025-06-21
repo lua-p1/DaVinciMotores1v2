@@ -1,3 +1,4 @@
+using UnityEngine;
 public class BoostedSpeed : PowerUps
 {
     protected override void Start()
@@ -6,8 +7,12 @@ public class BoostedSpeed : PowerUps
         notBuff = playerRef.GetInitSpeed;
         buff = playerRef.GetInitSpeed * 2;
     }
-    protected override void ActivateBuff()
+    protected override void OnTriggerEnter(Collider other)
     {
-        DelegatesManager.instance.TriggerAction(KeysDelegatesEnum.PlayerSpeed, buff, notBuff, buffTime);
+        if (other.TryGetComponent<IBoostedSpeed>(out var BoostedEntity))
+        {
+            BoostedEntity.StartSpeedBuff(buff, notBuff, buffTime);
+            Destroy(gameObject);
+        }
     }
 }

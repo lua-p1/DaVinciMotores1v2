@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum KeysDelegatesEnum
 {
-    PlayerSpeed,
-    PlayerMass,
-    PlayerJump,
     PlayerDeath,
 }
 public class DelegatesManager : MonoBehaviour
