@@ -34,6 +34,8 @@ public class DelegatesManager : MonoBehaviour
     {
         if (!_actions.ContainsKey(key)) return;
         _actions[key] -= value;
+        if (_actions[key] != null) return;
+        _actions.Remove(key);
     }
     public void TriggerAction(KeysDelegatesEnumEvents key)
     {
@@ -42,7 +44,17 @@ public class DelegatesManager : MonoBehaviour
             value?.Invoke();
         }
     }
-    //delegates sin firma en compliacion
+    #region // Delegates Sin Firma
+    public void AddAction(KeysDelegatesEnumWoutFirm key, Delegate value)
+    {
+        if (_generalActions.ContainsKey(key)) return;
+        _generalActions.Add(key, value);
+    }
+    public void RemoveAction(KeysDelegatesEnumWoutFirm key)
+    {
+        if (!_generalActions.ContainsKey(key)) return;
+        _generalActions.Remove(key);
+    }
     public object TriggerAction(KeysDelegatesEnumWoutFirm key, params object[] ars)
     {
         if (_generalActions.TryGetValue(key, out var value))
@@ -54,14 +66,5 @@ public class DelegatesManager : MonoBehaviour
             return null;
         }
     }
-    public void AddAction(KeysDelegatesEnumWoutFirm key, Delegate value)
-    {
-        if (_generalActions.ContainsKey(key)) return;
-        _generalActions.Add(key, value);
-    }
-    public void RemoveAction(KeysDelegatesEnumWoutFirm key)
-    {
-        if (!_generalActions.ContainsKey(key)) return;
-        _generalActions.Remove(key);
-    }
+    #endregion
 }

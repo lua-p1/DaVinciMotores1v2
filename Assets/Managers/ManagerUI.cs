@@ -19,6 +19,7 @@ public class ManagerUI : MonoBehaviour
     private void ShowText()
     {
         gameOverText.gameObject.SetActive(true);
+        DelegatesManager.instance.RemoveAction(KeysDelegatesEnumEvents.PlayerDeath, ShowText);
     }
     private void HiddenText()
     {

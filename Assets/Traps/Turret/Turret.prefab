@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3914473550882281048}
   - component: {fileID: 221458585833322637}
   - component: {fileID: 7108926709872528574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MGMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 177841394145161036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GunSight
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1722575111203386924}
   - component: {fileID: 6808989059283546432}
   - component: {fileID: 4216287859478579289}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Swivel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 1608666773171704321}
   - component: {fileID: 2500067003447516692}
   - component: {fileID: 2195903124714976329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccd259375cd54d41a089318a36d0310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fireRate: 0.3
   _anim: {fileID: 0}
   _child: {fileID: 3914473550882281048}
   _GunSight: {fileID: 177841394145161036}
@@ -302,7 +303,7 @@ GameObject:
   - component: {fileID: 1265174883008680821}
   - component: {fileID: 7822081094871878172}
   - component: {fileID: 4689798648592101216}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

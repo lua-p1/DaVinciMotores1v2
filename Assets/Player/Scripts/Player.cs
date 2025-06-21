@@ -13,6 +13,7 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
     [SerializeField]private Transform _groundChecker;
     [SerializeField]private Transform _interactPos;
     [SerializeField]private LayerMask layerMaskGround;
+    [SerializeField] private LayerMask layerMaskWall;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
         _movement = new Movement(this.transform, _initSpeed, _rb, _initJumpForce);
         _life = new Life(_initLife);
         _rayCastPj = new RaycastPj(_interactPos, 50f);
-        _controller = new Controller(_movement,_rayCastPj,_groundChecker,layerMaskGround);
+        _controller = new Controller(_movement,_rayCastPj,_groundChecker,layerMaskGround, layerMaskWall);
         DelegatesManager.instance.AddAction(KeysDelegatesEnumEvents.PlayerDeath, PlayerDeath);
     }
     private void Update()
