@@ -275,7 +275,7 @@ MonoBehaviour:
   lineRendererMaterial: {fileID: 2100000, guid: 10776a534391eee4b987207aa907e046, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 1153
 --- !u!111 &2195903124714976329
 Animation:
   m_ObjectHideFlags: 0
