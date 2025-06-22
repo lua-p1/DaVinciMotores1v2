@@ -10773,7 +10773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481296638323944216, guid: 4c46381ea51e3a34f9b54a6558a379cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.28
+      value: -6.54
       objectReference: {fileID: 0}
     - target: {fileID: 1481296638323944216, guid: 4c46381ea51e3a34f9b54a6558a379cd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10803,21 +10803,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2195903124714976329, guid: 4c46381ea51e3a34f9b54a6558a379cd, type: 3}
-      propertyPath: m_PlayAutomatically
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2500067003447516692, guid: 4c46381ea51e3a34f9b54a6558a379cd, type: 3}
-      propertyPath: _fireRate
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 4124887905028514628, guid: 4c46381ea51e3a34f9b54a6558a379cd, type: 3}
       propertyPath: m_Name
       value: Turret (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4124887905028514628, guid: 4c46381ea51e3a34f9b54a6558a379cd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
