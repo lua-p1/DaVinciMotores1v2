@@ -13,7 +13,7 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
     [SerializeField]private Transform _groundChecker;
     [SerializeField]private Transform _interactPos;
     [SerializeField]private LayerMask layerMaskGround;
-    [SerializeField] private LayerMask layerMaskWall;
+    [SerializeField]private LayerMask layerMaskWall;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -94,7 +94,6 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
         _life.TakeDamage(damage);
     }
     public Life GetLife { get => _life; }
-    public Movement GetMovement { get => _movement; }
     public float GetInitJump { get => _initJumpForce; }
     public float GetInitSpeed { get => _initSpeed; }
 }
