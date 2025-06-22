@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6732770014090970281}
   - component: {fileID: 6526957195406647481}
   - component: {fileID: 3887835959392013249}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpeedBuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.213, y: 0, z: 0}
-  m_LocalScale: {x: 3.4320118, y: 3.4320118, z: 3.4320118}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

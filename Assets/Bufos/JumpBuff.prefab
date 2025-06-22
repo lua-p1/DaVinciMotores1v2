@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5018210082954126082}
   - component: {fileID: 1318855088457457237}
   - component: {fileID: 6312540257129459698}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JumpBuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}

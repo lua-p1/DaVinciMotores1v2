@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78d0b080b996ba4ea377d129f0ec601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _restoreLife: 0
+  _restoreLife: 50
 --- !u!65 &2205891495026221104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -317,5 +317,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0898244, y: 1, z: 1.1466877}
+  m_Size: {x: 1.84, y: 2.19, z: 2.39}
   m_Center: {x: -0.002641797, y: 0, z: 0.024541497}
