@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccd259375cd54d41a089318a36d0310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 0.1
+  _fireRate: 0.3
   _anim: {fileID: 0}
   _child: {fileID: 3914473550882281048}
   _GunSight: {fileID: 177841394145161036}
