@@ -36,7 +36,6 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
     {
         _controller.OnUpdate();
         print(_life.GetLife);
-        print(_life.SetCanDamage);
     }
     private void FixedUpdate()
     {

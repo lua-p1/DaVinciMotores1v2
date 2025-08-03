@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     {
         this.GetComponent<Renderer>().material.color = Color.white;
         _dmg = 0f;
-        _speed = 20f;
+        _speed = 0f;
         _timeToDesactivate = 5f;
     }
     private void OnEnable()
@@ -49,4 +49,5 @@ public class Bullet : MonoBehaviour
     }
     public Color SetMaterial { set => this.GetComponent<Renderer>().material.color = value; }
     public float SetDamage { set => _dmg = value; }
+    public float SetSpeed { set => _speed = value; }
 }

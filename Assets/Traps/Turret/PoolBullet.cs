@@ -41,6 +41,7 @@ public class PoolBullet : MonoBehaviour
                 _bullets[i].SetActive(true);
                 _bullets[i].GetComponent<Bullet>().SetMaterial = currentConfig.materialColor;
                 _bullets[i].GetComponent<Bullet>().SetDamage = currentConfig.damage;
+                _bullets[i].GetComponent<Bullet>().SetSpeed = currentConfig.speed;
                 return _bullets[i];
             }
         }
@@ -55,4 +56,5 @@ public struct ConfigBullet
 {
     public Color materialColor;
     public float damage;
+    public float speed;
 }
