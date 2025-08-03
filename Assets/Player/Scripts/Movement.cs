@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Windows;
 public class Movement
 {
     private float _speed;
@@ -19,7 +18,7 @@ public class Movement
         _dir.Normalize();
         if (_dir != Vector3.zero)
         {
-            Quaternion rot = Quaternion.LookRotation(_dir);
+            Quaternion rot = Quaternion.LookRotation(_dir, Vector3.up);
             _rb.MoveRotation(Quaternion.Slerp(_rb.rotation,rot,5f * Time.fixedDeltaTime));
         }
         Vector3 _newPos = _rb.position + _dir * _speed * Time.fixedDeltaTime;
@@ -31,7 +30,7 @@ public class Movement
         _dir.Normalize();
         if (_dir != Vector3.zero)
         {
-            Quaternion rot = Quaternion.LookRotation(_dir);
+            Quaternion rot = Quaternion.LookRotation(_dir,Vector3.up);
             _rb.MoveRotation(Quaternion.Slerp(_rb.rotation, rot, 5f * Time.fixedDeltaTime));
         }
     }
