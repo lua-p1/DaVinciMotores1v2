@@ -4462,6 +4462,11 @@ MonoBehaviour:
   prefab: {fileID: 172252132227914212, guid: 70c896d9c46f5374a9a1c5761aabf718, type: 3}
   initialSize: 50
   _bullets: []
+  BulletsConfig:
+  - material: {fileID: 0}
+    damage: 0
+  - material: {fileID: 0}
+    damage: 0
 --- !u!4 &345359904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3207184081706044718, guid: 8b42714a44a5ed74995f07501f5992b2, type: 3}

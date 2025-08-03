@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 public class PoolBullet : MonoBehaviour
@@ -5,6 +6,7 @@ public class PoolBullet : MonoBehaviour
     [SerializeField]private GameObject prefab;
     [SerializeField]private int initialSize;
     [SerializeField]private List<GameObject> _bullets;
+    public List<ConfigBullet> BulletsConfig;
     public static PoolBullet instance;
     private void Awake()
     {
@@ -43,4 +45,10 @@ public class PoolBullet : MonoBehaviour
         _auxBullet.SetActive(true);
         return _auxBullet;
     }
+}
+[Serializable]
+public struct ConfigBullet
+{
+    public Material material;
+    public float damage;
 }
