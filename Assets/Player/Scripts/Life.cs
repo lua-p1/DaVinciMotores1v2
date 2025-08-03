@@ -2,9 +2,11 @@ using UnityEngine;
 public class Life
 {
     private float _currentLife;
+    private bool _canDamage;
     public Life(float _currentLife)
     {
         this._currentLife = _currentLife;
+        _canDamage = true;
     }
     private void CheckLife()
     {
@@ -15,6 +17,7 @@ public class Life
     }
     public void TakeDamage(float damage)
     {
+        if(!_canDamage)return;
         _currentLife -= damage;
         CheckLife();
         Debug.Log($"Vida actual: {_currentLife}");
@@ -27,4 +30,5 @@ public class Life
         Debug.Log($"Vida actual: {_currentLife}");
     }
     public float GetLife { get => _currentLife; }
+    public bool SetCanDamage { get => _canDamage;set => _canDamage = value; }
 }

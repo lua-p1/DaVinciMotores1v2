@@ -8,6 +8,7 @@ public enum KeysDelegatesEnumEvents
 }
 public enum KeysDelegatesEnumWoutFirm
 {
+    Inmortal,
 }
 public class DelegatesManager : MonoBehaviour
 {
