@@ -8,8 +8,9 @@ public class Bullet : MonoBehaviour
     private float _timeToDesactivate;
     private void Awake()
     {
-        _dmg = 50f;
-        _speed = 20f;
+        this.GetComponent<Renderer>().material.color = Color.white;
+        _dmg = 0f;
+        _speed = 0f;
         _timeToDesactivate = 5f;
     }
     private void OnEnable()
@@ -46,4 +47,7 @@ public class Bullet : MonoBehaviour
         _isDesactivate = true;
         this.gameObject.SetActive(false);
     }
+    public Color SetMaterial { set => this.GetComponent<Renderer>().material.color = value; }
+    public float SetDamage { set => _dmg = value; }
+    public float SetSpeed { set => _speed = value; }
 }

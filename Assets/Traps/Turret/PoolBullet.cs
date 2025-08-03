@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 public class PoolBullet : MonoBehaviour
@@ -5,6 +6,7 @@ public class PoolBullet : MonoBehaviour
     [SerializeField]private GameObject prefab;
     [SerializeField]private int initialSize;
     [SerializeField]private List<GameObject> _bullets;
+    public List<ConfigBullet> BulletsConfig;
     public static PoolBullet instance;
     private void Awake()
     {
@@ -34,7 +36,12 @@ public class PoolBullet : MonoBehaviour
         {
             if (!_bullets[i].activeSelf)
             {
+                int random = UnityEngine.Random.Range(0, BulletsConfig.Count);
+                var currentConfig = BulletsConfig[random];
                 _bullets[i].SetActive(true);
+                _bullets[i].GetComponent<Bullet>().SetMaterial = currentConfig.materialColor;
+                _bullets[i].GetComponent<Bullet>().SetDamage = currentConfig.damage;
+                _bullets[i].GetComponent<Bullet>().SetSpeed = currentConfig.speed;
                 return _bullets[i];
             }
         }
@@ -43,4 +50,11 @@ public class PoolBullet : MonoBehaviour
         _auxBullet.SetActive(true);
         return _auxBullet;
     }
+}
+[Serializable]
+public struct ConfigBullet
+{
+    public Color materialColor;
+    public float damage;
+    public float speed;
 }

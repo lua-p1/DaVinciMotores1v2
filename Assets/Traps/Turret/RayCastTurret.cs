@@ -54,7 +54,7 @@ public class RayCastTurret
         Color colorOrginal = Color.green;
         Color colorFinal = Color.red;
         float t = 0f;
-        float totalTime = 2f;
+        float totalTime = 1f;
         while (t <= totalTime)
         {
             t += Time.deltaTime;

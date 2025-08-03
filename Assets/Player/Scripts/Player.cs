@@ -1,6 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
-public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed , ITakeDamage
+public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed , ITakeDamage , IBoostedLife
 {
     [SerializeField]private float _initSpeed;
     [SerializeField]private float _initLife;
@@ -29,10 +30,12 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
         _rayCastPj = new RaycastPj(_interactPos, 5f);
         _controller = new Controller(_movement,_rayCastPj,_groundChecker,layerMaskGround, layerMaskWall);
         DelegatesManager.instance.AddAction(KeysDelegatesEnumEvents.PlayerDeath, PlayerDeath);
+        DelegatesManager.instance.AddAction(KeysDelegatesEnumWoutFirm.Inmortal,(Action<bool,bool,float>)StartLifeBuff);
     }
     private void Update()
     {
         _controller.OnUpdate();
+        print(_life.GetLife);
     }
     private void FixedUpdate()
     {
@@ -59,6 +62,12 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
         yield return new WaitForSeconds(time);
         _movement.GetAndSetSpeed = notBuff;
     }
+    public IEnumerator ChangeLife(bool buff, bool notBuff, float time)
+    {
+        _life.SetCanDamage = buff;
+        yield return new WaitForSeconds(time);
+        _life.SetCanDamage = notBuff;
+    }
     public void StartJumpBuff(float buff, float notBuff, float time)
     {
         StartCoroutine(ChangeJump(buff, notBuff, time));
@@ -70,6 +79,10 @@ public class Player : MonoBehaviour ,IBoostedJump ,IBoostedMass, IBoostedSpeed ,
     public void StartSpeedBuff(float buff, float notBuff, float time)
     {
         StartCoroutine(ChangeSpeed(buff, notBuff, time));
+    }
+    public void StartLifeBuff(bool buff, bool notBuff, float time)
+    {
+        StartCoroutine(ChangeLife(buff, notBuff, time));
     }
     #endregion
     private void OnDrawGizmos()
