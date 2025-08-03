@@ -4463,10 +4463,14 @@ MonoBehaviour:
   initialSize: 50
   _bullets: []
   BulletsConfig:
-  - material: {fileID: 0}
-    damage: 0
-  - material: {fileID: 0}
-    damage: 0
+  - materialColor: {r: 1, g: 0, b: 0, a: 0}
+    damage: 1
+  - materialColor: {r: 0, g: 0.16973758, b: 1, a: 0}
+    damage: 2
+  - materialColor: {r: 0.23092759, g: 1, b: 0, a: 0}
+    damage: 5
+  - materialColor: {r: 1, g: 0, b: 0.60941887, a: 0}
+    damage: 6
 --- !u!4 &345359904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3207184081706044718, guid: 8b42714a44a5ed74995f07501f5992b2, type: 3}

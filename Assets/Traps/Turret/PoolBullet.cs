@@ -36,7 +36,11 @@ public class PoolBullet : MonoBehaviour
         {
             if (!_bullets[i].activeSelf)
             {
+                int random = UnityEngine.Random.Range(0, BulletsConfig.Count);
+                var currentConfig = BulletsConfig[random];
                 _bullets[i].SetActive(true);
+                _bullets[i].GetComponent<Bullet>().SetMaterial = currentConfig.materialColor;
+                _bullets[i].GetComponent<Bullet>().SetDamage = currentConfig.damage;
                 return _bullets[i];
             }
         }
@@ -49,6 +53,6 @@ public class PoolBullet : MonoBehaviour
 [Serializable]
 public struct ConfigBullet
 {
-    public Material material;
+    public Color materialColor;
     public float damage;
 }
